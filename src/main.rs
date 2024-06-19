@@ -65,6 +65,71 @@ impl Temprature {
     
 }
 
+// activity 12 impl
+
+
+enum Color{
+    Red,
+    Blue,
+}
+
+
+impl Color {
+    fn print(&self){
+        match self {
+            Color::Blue => println!("blue"),
+            Color::Red => println!("red"),
+            
+        }
+    }
+    
+}
+
+struct Dimention{
+    x:f64,
+    y:f64,
+    z:f64,
+}
+
+impl Dimention {
+    fn print(&self){
+        println!("x is {:?}",self.x);
+        println!("y is {:?}",self.y);
+        println!("z is {:?}",self.z);
+    }
+}
+
+struct ShippingBox{
+    color:Color,
+    dimention:Dimention,
+    weight: f64,
+
+}
+
+impl  ShippingBox {
+    fn new(color: Color, dimention: Dimention, weight: f64)->Self{
+        Self { 
+            color,
+            dimention,
+            weight
+         }
+
+    }
+
+
+    fn print(&self){
+        self.color.print();
+        self.dimention.print();
+        println!("weight:{:?}",self.weight);
+    }
+    
+
+
+   
+
+    
+    
+}
 
 
 
@@ -74,7 +139,7 @@ fn main() {
 
     let book = Book{
         pages:10,
-        rating:4
+        rating:4,
     };
     display_page_count(&book);
     display_rating(&book);
@@ -98,6 +163,23 @@ fn main() {
 
     let boiling = Temprature::boiling_temp();
     boiling.show_temp();
+
+
+    // main activity 12
+
+
+    let small_dimention = Dimention{
+        x:2.0,
+        y:3.0,
+        z:4.0,
+    };
+
+    let my_box = ShippingBox::new(Color::Blue, small_dimention, 3.4);
+    my_box.print();
+
+
+
+    
 
 
 
